@@ -71,7 +71,7 @@ def is_guess_in_word(guess, secret_word):
         return True
     else:
         tries -= 1
-        print("That's incorrect! Guess again. Letters guessed:", letters_guessed)
+        print("OOF! Thats incorrect! Letters guessed:", letters_guessed)
         print(f"You have", tries, "guesses left")
         return False
 
@@ -192,21 +192,21 @@ def spaceman(secret_word):
     
     while is_word_guessed(secret_word, letters_guessed) == False:
         global tries
-        guess = input('Please enter a letter > ')
+        guess = input('Enter a letter > ')
 
         if len(guess) == 1:
             guess = guess.lower()
             if guess.isnumeric() == True:
-                print("WHAT? That's not a letter!")
+                print("YO! That's not a letter!")
                 tries += 1
             elif str(guess) not in letters_guessed:
                 letters_guessed.append(guess)
             else: 
                 tries += 1
-                print("Oops! You've already guessed that letter!")
+                print("YO! You already guessed that letter!")
             # print(letters_guessed)
         else:
-            print('Please enter only one character at a time')
+            print(' Enter only one character at a time')
 
         #TODO: Check if the guessed letter is in the secret or not and give the player feedback
         is_guess_in_word(guess, secret_word)
@@ -219,7 +219,7 @@ def spaceman(secret_word):
 
         # ends game if player runs out of tries
         if tries == 0:
-            print("You Lost! The secret word was", secret_word)
+            print("OOF! You Lost! The secret word was", secret_word)
             break
     
     if is_word_guessed(secret_word, letters_guessed) == True:
